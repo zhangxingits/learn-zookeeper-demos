@@ -19,7 +19,7 @@ public class ZKOpSample {
 
     public ZKOpSample(String connectString) {
         try {
-            zk = new ZooKeeper(connectString, 1000, null);
+            zk = new ZooKeeper(connectString, 6000, null);
         } catch (IOException e) {
             e.printStackTrace();
             if (zk != null) {
@@ -72,7 +72,7 @@ public class ZKOpSample {
 
     public List<ACL> getIpAcl() {
         List<ACL> acls = new ArrayList<ACL>();
-        Id ipId = new Id("ip", "127.0.0.1");
+        Id ipId = new Id("ip", "192.168.1.100");
         acls.add(new ACL(ZooDefs.Perms.ALL, ipId));
         return acls;
     }
@@ -83,33 +83,6 @@ public class ZKOpSample {
                 "javaclient2:CGf2ylBdcKMdCYuzd08lQfOPvN0=");
         acls.add(new ACL(ZooDefs.Perms.ALL, digestId));
         return acls;
-    }
-
-    public static void main(String[] args) {
-        // TODO Auto-generated method stub
-        ZKOpSample zks = new ZKOpSample("lab01:2181");
-        // 所有人都可以访问的节点
-//		 zks.testCreateNode("/acl/javaclient/node1",
-//		 "node1data".getBytes(),Ids.OPEN_ACL_UNSAFE);
-
-        // 只有被认证过的人都可以访问
-//		 zks.getZk().addAuthInfo("digest", "javaclient1:111111".getBytes());
-//		 zks.testCreateNode("/acl/javaclient/node2",
-//		 "node2data".getBytes(),Ids.CREATOR_ALL_ACL);
-
-        // zks.testCreateNode("/acl/javaclient/node3",
-        // "node3data".getBytes(),zks.getIpAcl());
-
-//		zks.testCreateNode("/acl/javaclient/node5", "node5data".getBytes(),
-//				zks.getDigestAcl());
-        try{
-            zks.getZk().addAuthInfo("digest", "javaclient2:111111".getBytes());
-            zks.deleteNodeWithAsync("/acl/javaclient/node5", 0);
-
-            Thread.sleep(30000);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
     }
 
 }

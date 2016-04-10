@@ -20,6 +20,15 @@ public class ZKCreateSample implements Watcher{
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Zookeeper session established.");
+        }finally {
+            if (zooKeeper != null) {
+                try{
+                    zooKeeper.close();
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
         }
         System.out.println("end state="+zooKeeper.getState());
     }
