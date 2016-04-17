@@ -65,7 +65,7 @@ public class ZKOpSample {
      */
     public boolean deleteNodeWithAsync(String path,int version) {
         String context ="上下文对象测试";
-        System.out.println("删除");
+        System.out.println("删除。");
         zk.delete(path, version, new DeleteCallBack(), context);
         return true;
     }
