@@ -15,7 +15,7 @@ public class ZKOpSampleTest {
     @Test
     public void testCreateNode() {
         new ZKOpSample("lab01:2181").
-                testCreateNode("/acl/javaclient/node1", "ae86".getBytes(),
+                testCreateNode("/acl/javaclient/node1", "ae861501".getBytes(),
                         ZooDefs.Ids.OPEN_ACL_UNSAFE);
     }
 

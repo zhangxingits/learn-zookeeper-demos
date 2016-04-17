@@ -33,7 +33,6 @@ public class ZKCreateSample implements Watcher{
         System.out.println("end state="+zooKeeper.getState());
     }
 
-    @Override
     public void process(WatchedEvent watchedEvent) {
         System.out.println("receive watched event: "+watchedEvent);
         if (watchedEvent.getState() == Event.KeeperState.SyncConnected) {
