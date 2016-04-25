@@ -28,5 +28,20 @@
       <artifactId>zookeeper</artifactId>
       <version>3.4.8</version>
     </dependency>
+
+    <!--ZKClient-->
+    <dependency>
+      <groupId>com.101tec</groupId>
+      <artifactId>zkclient</artifactId>
+      <version>0.7</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.curator</groupId>
+      <artifactId>curator-framework</artifactId>
+      <version>3.0.0</version>
+    </dependency>
+
+
   </dependencies>
 </project>

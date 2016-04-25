@@ -45,7 +45,7 @@ public class ZKOpSample {
         String res = "";
         try {
             // zk.addAuthInfo("auth", "javaclient1:111111".getBytes());
-            res = zk.create(path, data, acls, CreateMode.PERSISTENT);
+            res = zk. create(path, data, acls, CreateMode.PERSISTENT);
             System.out.println("创建节点" + res + "成功");
         } catch (KeeperException e) {
             // TODO Auto-generated catch block
